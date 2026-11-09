@@ -1,0 +1,11 @@
+# Example PRIMARY settings. Merge into the active postgresql.conf.
+wal_level = replica
+archive_mode = on
+# Directory must be absolute and writable by the PostgreSQL service account.
+archive_command = 'test ! -f /var/lib/postgresql/wal_archive/%f && cp %p /var/lib/postgresql/wal_archive/%f'
+max_wal_senders = 10
+# Optional when using physical replication slots:
+# max_replication_slots = 10
+# For remote replication, configure the required private interface only,
+# then restrict access further using firewall rules and pg_hba.conf.
+# listen_addresses = 'localhost,10.0.0.10'

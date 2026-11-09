@@ -1,0 +1,5 @@
+# Replace 10.0.0.20 with the STANDBY server's private IP.
+host    replication    replicator    10.0.0.20/32    scram-sha-256
+
+# For a same-machine lab using loopback, use this rule instead/as appropriate:
+# host  replication    replicator    127.0.0.1/32     scram-sha-256
